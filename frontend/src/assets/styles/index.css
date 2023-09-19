@@ -1,0 +1,228 @@
+/*ID's*/
+/*Title Section*/
+#title{
+  background-color: #B4E4FF;
+  color: #413543;
+}
+
+/*Features Section*/
+#features{
+  padding: 7%;
+}
+
+/*Tutors Section*/
+#tutors{
+  padding: 2% 5% 8% 5%; /* %2 for top, %10 for right, %8 for bottom, %10 for left*/
+  background-color: #B4E4FF;
+}
+
+/*Pricing Section*/
+#pricing{
+  padding: 100px;
+}
+
+#footer{
+  background-color: #B4E4FF;
+  padding: 5% 15%;
+  text-align: center;
+}
+
+/***********************************************************/
+
+/*Tag Selectors*/
+h1{ 
+  font-family: 'Montserrat', sans-serif;  
+  font-size: 3.5rem; /*Büyültmek için*/
+  line-height: 1.5; /*Daha fazla yer kaplasın diye*/
+  font-weight: 900; /*Kalınlaştırmak için*/
+}
+
+body{
+  font-family: 'Montserrat', sans-serif; 
+}
+
+h2{
+  /*margin-top: 100px;
+  margin-bottom: 100px;*/
+  text-align: center;
+  
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 3rem;
+
+  color: #413543;
+}
+
+h3{
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1.5rem;
+
+  color: #4E6E81;
+}
+
+p{
+  color: #8f8f8f;
+  text-align: center;
+}
+
+/***********************************************************/
+/*Class Selectors*/
+
+/*For Title Part*/
+.chess-image{
+  width: 80%;
+  margin-left: 150px;
+}
+
+/* @media (max-width: 1000px)
+{
+  #title{
+      text-align: center;
+  }
+  .chess-image{
+      position: relative;
+      right: 75px;
+  }
+} */
+
+.container-fluid{
+  padding: 7% 15%; /*%7 for top and bottom, %15 for left and right*/
+}
+
+/*Navigation bar*/
+.navbar-brand{
+  margin-left: 50px;
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.nav-item{
+  margin-right: 50px;
+}
+
+.nav-link{
+  font-size: 1.5rem;
+  font-family: 'Montserrat-Light';
+}
+
+/***********************************************************/
+
+/*For Features Part*/
+.allContainers{
+  text-align: center;
+}
+
+.fa-solid{
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.fa-solid:hover{
+  color: #00235B;
+}
+
+/***********************************************************/
+
+/*For Tutors Part*/
+.person{
+ text-align: center;
+}
+
+.photos{
+  border-radius: 100%; /*Yuvarlak yapmak için*/
+}
+
+.photo-container{
+  margin-right: 100px;
+}
+
+.iso-photo{
+  height: 400px;
+  width: 400px;
+}
+
+.şamil-photo{
+  height: 400px;
+  margin-left: 35px;
+}
+
+.barış-photo{
+  height: 400px;
+  width: 400px;
+  margin-left: 70px;
+}
+
+.deniz-photo{
+  height: 400px;
+  width: 400px;
+  margin-left: 100px;
+}
+
+.names{
+  font-weight: bold;
+  font-family: 'Montserrat';
+  color: #413543;
+
+  margin-top: 20px;
+}
+
+.barış-name{
+  font-weight: bold;
+  font-family: 'Montserrat';
+  color: #413543;
+  
+  margin-left: 175px;
+  margin-top: 20px;
+}
+
+.şamil-name{
+  font-weight: bold;
+  font-family: 'Montserrat';
+  color: #413543;
+
+  margin-left: 90px;
+  margin-top: 20px;
+}
+
+.deniz-name{
+  margin-left: 220px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-family: 'Montserrat';
+  color: #413543;
+}
+
+.staff{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+/***********************************************************/
+
+/*For Pricing Part*/
+.card{
+  height: 100%;
+}
+
+.card-group{
+  margin-bottom: 100px;
+}
+
+.sign-up-buttons{
+  width: 100%;
+}
+
+.pricing-column{
+  padding: 3% 2%; /* 3% for top and bottom, 2% for left and right*/
+}
+
+/***********************************************************/
+
+/*For Footer Part*/
+.social-media{
+  margin: 0 10px 20px 10px; /*10 px for left and right, 20px for bottom*/
+  font-size: 3rem;
+}
+
