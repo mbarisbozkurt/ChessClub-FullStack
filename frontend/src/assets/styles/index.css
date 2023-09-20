@@ -1,26 +1,27 @@
 /*ID's*/
 /*Title Section*/
-#title{
+#başlık{
   background-color: #B4E4FF;
   color: #413543;
 }
 
 /*Features Section*/
-#features{
+#özellikler{
   padding: 7%;
 }
 
 /*Tutors Section*/
-#tutors{
+#eğitmenler{
   padding: 2% 5% 8% 5%; /* %2 for top, %10 for right, %8 for bottom, %10 for left*/
   background-color: #B4E4FF;
 }
 
 /*Pricing Section*/
-#pricing{
+#ders-al{
   padding: 100px;
 }
 
+/*Footer Section*/
 #footer{
   background-color: #B4E4FF;
   padding: 5% 15%;
@@ -39,6 +40,7 @@ h1{
 
 body{
   font-family: 'Montserrat', sans-serif; 
+  overflow-x: hidden;
 }
 
 h2{
@@ -105,6 +107,12 @@ p{
 .nav-link{
   font-size: 1.5rem;
   font-family: 'Montserrat-Light';
+  margin-right: 50px;
+}
+
+.header-button{
+  background-color: black;
+  font-size: 1.2rem;
 }
 
 /***********************************************************/
@@ -141,6 +149,9 @@ p{
 .iso-photo{
   height: 400px;
   width: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .şamil-photo{
@@ -226,3 +237,34 @@ p{
   font-size: 3rem;
 }
 
+/***********************************************************/
+/*LATER ADDED*/
+
+#rows{
+  padding: 2% 5% 2% 5%; /* %2 for top, %10 for right, %8 for bottom, %10 for left*/
+}
+
+#hosgeldiniz{
+  padding: 2% 5% 5% 5%; /* %2 for top, %10 for right, %8 for bottom, %10 for left*/
+}
+
+.iso-name{
+  text-align: center;
+}
+
+.samilName{
+  text-align: center;
+  margin-left: 2rem;
+}
+
+.barisName{
+  margin-left: 150px;
+}
+
+.denizName{
+  margin-left: 220px;
+}
+
+.hosgeldiniz{
+  text-align: center;
+}

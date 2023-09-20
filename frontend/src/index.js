@@ -13,11 +13,17 @@ import {
 } from "react-router-dom"
 
 import HomeScreen from './screens/HomeScreen';
+import Pawn from './screens/Pawn';
+import Bishop from './screens/Bishop';
+import Queen from './screens/Queen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>} >
       <Route index={true} path='/' element={<HomeScreen/>}/>
+      <Route path='/piyon' element={<Pawn/>}/> 
+      <Route path='/fil' element={<Bishop/>}/>
+      <Route path='/vezir' element={<Queen/>}/>
     </Route>
   )
 )

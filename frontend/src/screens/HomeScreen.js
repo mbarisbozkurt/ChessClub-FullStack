@@ -2,11 +2,12 @@ import React from 'react'
 import {Row, Col, Container, Image, Card, Button} from "react-bootstrap"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChessKnight, faChessBishop, faChessRook, faChessQueen } from '@fortawesome/free-solid-svg-icons';
+import { LinkContainer } from 'react-router-bootstrap'; 
 
 const HomeScreen = () => {
   return (
     <>
-      <section id="title">
+      <section id="başlık">
         <Container fluid>
           <Row>
             <Col lg={6}>
@@ -19,7 +20,7 @@ const HomeScreen = () => {
         </Container>
       </section>
 
-      <section id="features">
+      <section id="özellikler">
         <Row className="allContainers">
           <Col md={3}>
             <FontAwesomeIcon icon={faChessKnight} className='fa-solid'/>
@@ -44,8 +45,8 @@ const HomeScreen = () => {
         </Row>
       </section>
       
-      <section id="tutors">
-            <h2 className="staff">KADROMUZ</h2>
+      <section id="eğitmenler">
+            <h2 className="staff">EĞİTMENLER</h2>
               <Row className="photo-container">
                   <Col lg={3} className="person">
                       <Image className="iso-photo photos" src="images/iso-e1599314615102.jpg" alt="iso-photo" />
@@ -69,8 +70,8 @@ const HomeScreen = () => {
               </Row>
         </section>
 
-        <section id="pricing">
-            <h2>Her Çocuğun İhtiyacı İçin Bir Plan</h2>
+        <section id="ders-al">
+            <h2>Yüz Yüze Ders Alın</h2>
             <p>Siz ve çocuğunuz için basit ve uygun fiyat planları</p>
               <Row>
                   <Col lg={4} md={6} className="pricing-column">
@@ -84,7 +85,9 @@ const HomeScreen = () => {
                               <p>Hafta Başına 1 Saat Özel Ders İmkanı</p>
                           </Card.Body>
                           <Card.Footer>
-                              <Button variant="outline-dark" size="lg" className="sign-up-buttons">Kayıt Ol</Button>
+                              <LinkContainer to={"/piyon"}>
+                                <Button variant="outline-dark" size="lg" className="sign-up-buttons">Eğitmen Seç ve Ders Al</Button>
+                              </LinkContainer>
                           </Card.Footer>
                       </Card>
                   </Col>
@@ -100,7 +103,9 @@ const HomeScreen = () => {
                               <p>Hafta Başına 2 Saat Özel Ders İmkanı</p>
                           </Card.Body>
                           <Card.Footer>
-                              <Button variant="dark" size="lg" className="sign-up-buttons">Kayıt Ol</Button>
+                              <LinkContainer to={"/fil"}>
+                                <Button variant="outline-dark" size="lg" className="sign-up-buttons">Eğitmen Seç ve Ders Al</Button>
+                              </LinkContainer>
                           </Card.Footer>
                       </Card>
                   </Col>
@@ -116,7 +121,9 @@ const HomeScreen = () => {
                               <p>Hafta Başına 4 Saat Özel Ders İmkanı</p>
                           </Card.Body>
                           <Card.Footer>
-                              <Button variant="dark" size="lg" className="sign-up-buttons">Kayıt Ol</Button>
+                              <LinkContainer to={"/vezir"}>
+                                <Button variant="outline-dark" size="lg" className="sign-up-buttons">Eğitmen Seç ve Ders Al</Button>
+                              </LinkContainer>
                           </Card.Footer>
                       </Card>
                   </Col>
