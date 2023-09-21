@@ -18,8 +18,8 @@ const Pawn = () => {
 
   return (
     <>
-      <h3 id='rows' className='hosgeldiniz'>"Piyon" eğitim setine hoşgeldiniz.</h3>
-      <h3 id='hosgeldiniz' className='hosgeldiniz'>Bu eğitim seti ile hafta başına 1.5 Saat grup dersi, 1 Saat özel ders alma imkanı bulacaksınız.</h3>
+      <h3 id='rows' className='hosgeldiniz'>"Fil" eğitim setine hoşgeldiniz.</h3>
+      <h3 id='hosgeldiniz' className='hosgeldiniz'>Bu eğitim seti ile hafta başına 4 Saat grup dersi, 2 Saat özel ders alma imkanı bulacaksınız.</h3>
 
       {teachers && teachers.map((teacher, index) => (
         <Row id='rows' style={index % 2 === 0 ? {backgroundColor: "#B4E4FF"} : {}}>  
@@ -36,6 +36,7 @@ const Pawn = () => {
           <h4 className='mt-5'>{teacher && teacher.description}</h4>
           <h4 className='mt-5'>İletişim: {teacher && teacher.contact}</h4>
           <Button className='button-center my-3 btn-lg' variant='success'>Ders Al</Button>
+          <h4><em>{teacher && teacher.remainingPeopleForBishop} kişilik yer kaldı</em></h4>
         </Col>
       </Row>
       ))}

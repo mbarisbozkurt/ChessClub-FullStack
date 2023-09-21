@@ -2,9 +2,11 @@ import express from "express";
 import dotenv from "dotenv"; //To be able to read the .env file with the .config() method and load the environmental variables in it into the process.env object
 dotenv.config();
 import teachers from "./data/teachers.js";
-const port = process.env.PORT || 5000; //get the port from .env
+import connectDB from "./config/db.js";
 
+const port = process.env.PORT || 5000; //get the port from .env
 const app = express();
+connectDB();
 
 app.get("/", (req, res) => {
   res.send("API is running...")
