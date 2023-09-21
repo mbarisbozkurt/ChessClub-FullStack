@@ -23,6 +23,7 @@ const Queen = () => {
             15 yılı aşkın bir süredir satranç oynayan Ismail Tarık Baltacı, 2100+ ukdye ulaşarak NM unvanını almaya hak kazandı. 2014 yılında 15 yaş kategorisinde 4. olarak milli takıma 
             girdi. Yalova Altınkale Satranç Kulübünde birebir ve grup dersleri konusunda 5 yıldan fazla tecrübesi olan eğitmenimizden ders alabilirsiniz. 1600 - 1800 UKD arası iseniz, bu eğitmenden ders almayı düşünebilirsiniz.
           </h4>
+          <h4>İletişim: 0542 563 99 19</h4>
           <Button className='button-center my-3 btn-lg' variant='success'>Ders Al</Button>
         </Col>
 
@@ -44,6 +45,7 @@ const Queen = () => {
             10 yılı aşkın bir süredir satranç oynayan Şamil Aliyev, 1900+ ukdye sahiptir. 2018-2020 arası Yalova Altınkale Satranç Kulübü, 2020-2023 yılları arasında ise İzmir'in çeşitli kulüplerinde eğitmenlik yapan Şamil Aliyev'in birebir ve grup dersleri konusunda 4 yıldan fazla tecrübesi vardır. 
             1300 - 1600 UKD arası iseniz, bu eğitmenden ders almayı düşünebilirsiniz.
           </h4>
+          <h4>İletişim: 0542 582 77 35</h4>
           <Button className='button-center my-5 btn-lg' variant='success'>Ders Al</Button>
         </Col>
 
@@ -65,6 +67,7 @@ const Queen = () => {
             15 yılı aşkın bir süredir satranç oynayan Mehmet Barış Bozkurt, 1650+ ukdye sahiptir. Çoğu Yalova'da olmak üzere 30'dan fazla madalya ve 7 kupa kazandı. 
             1100 - 1300 UKD arası iseniz, bu eğitmenden ders almayı düşünebilirsiniz.
           </h4>
+          <h4>İletişim: 0536 647 71 12</h4>
           <Button className='button-center my-3 btn-lg' variant='success'>Ders Al</Button>
         </Col>
 
@@ -86,6 +89,7 @@ const Queen = () => {
             5 yılı aşkın bir süredir satranç Deniz Özgen, 1400+ ukdye sahiptir. Çoğu Yalova'da olmak üzere birçok başarıya imza attı. 
             1000 - 1100 UKD arası iseniz, bu eğitmenden ders almayı düşünebilirsiniz.
           </h4>
+          <h4>İletişim: 0533 408 35 77</h4>
           <Button className='button-center my-3 btn-lg' variant='success'>Ders Al</Button>
         </Col>
 

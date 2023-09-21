@@ -71,7 +71,7 @@ const HomeScreen = () => {
         </section>
 
         <section id="ders-al">
-            <h2>Yüz Yüze Ders Alın</h2>
+            <h2>Yüz Yüze/Online Ders Alın</h2>
             <p>Siz ve çocuğunuz için basit ve uygun fiyat planları</p>
               <Row>
                   <Col lg={4} md={6} className="pricing-column">
