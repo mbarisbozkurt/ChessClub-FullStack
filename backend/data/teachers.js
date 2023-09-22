@@ -1,6 +1,5 @@
 const teachers = [
   {
-    _id: '1',
     name: 'NM Ismail Tarık Baltacı',
     image: '/images/iso-e1599314615102.jpg',
     description:
@@ -8,12 +7,9 @@ const teachers = [
     remainingPeopleForPawn: 15, 
     remainingPeopleForBishop: 15,
     remainingPeopleForQueen: 15,
-    rating: 4.5,
-    numReviews: 12,
     contact: "0542 563 99 19", 
   },
   {
-    _id: '2',
     name: 'Şamil Aliyev',
     image: '/images/272920431_4797855093662086_5044797289672000267_n.jpg',
     description:
@@ -21,12 +17,9 @@ const teachers = [
     remainingPeopleForPawn: 10, 
     remainingPeopleForBishop: 10,
     remainingPeopleForQueen: 10,
-    rating: 4.7,
-    numReviews: 8,
     contact: "0542 582 77 35",
   },
   {
-    _id: '3',
     name: 'Mehmet Barış Bozkurt',
     image: '/images/13690929_10210129296817039_6920167410369767353_o.jpg',
     description:
@@ -34,12 +27,9 @@ const teachers = [
     remainingPeopleForPawn: 12, 
     remainingPeopleForBishop: 12,
     remainingPeopleForQueen: 12,
-    rating: 4.4,
-    numReviews: 6,
     contact: "0536 647 71 12",
   },
   {
-    _id: '4',
     name: 'Deniz Özgen',
     image: 'images/146ac58a-fde4-4d14-9f40-9990fb96027c.jpeg',
     description:
@@ -47,8 +37,6 @@ const teachers = [
     remainingPeopleForPawn: 15, 
     remainingPeopleForBishop: 15,
     remainingPeopleForQueen: 15,
-    rating: 4.6,
-    numReviews: 14,
     contact: "0533 408 35 77",
   },
 ]
