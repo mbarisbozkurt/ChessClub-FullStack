@@ -47,4 +47,4 @@ const teacherSchema = new mongoose.Schema({
 //create the Product table
 const Teacher = mongoose.model("Teacher", teacherSchema);
 
-export default Product;
+export default Teacher;
