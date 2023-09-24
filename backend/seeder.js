@@ -7,6 +7,7 @@ import teachers from "./data/teachers.js";
 
 import User from "./models/userModel.js";
 import Teacher from "./models/teacherModel.js";
+import Orders from "./models/orderModel.js";
 
 import connectDB from "./config/db.js";
 dotenv.config();
