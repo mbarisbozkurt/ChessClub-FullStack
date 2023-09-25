@@ -1,23 +1,25 @@
 import React from 'react'
 import {Row, Col, Image, Button} from "react-bootstrap"
+import Loader from "../components/Loader.js"
+import Message from '../components/Message.js'
+import {useNavigate} from "react-router-dom"
 
-import { useEffect, useState } from 'react'
-import axios from 'axios';
+import { useGetTeachersQuery } from '../slices/teachersApiSlice'
 
 const Pawn = () => {
-  const [teachers, setTeachers] = useState([]);
 
-  /*get the products from backend i.e server.js: app.get("/api/teachers", (req, res) => {res.json(products); })*/
-  useEffect(() => {
-   const fetchTeachers = async () => {
-      const {data} = await axios.get("/api/teachers"); 
-      setTeachers(data);
-   }
-   fetchTeachers();
-  }, []) //[] means: only one time
+  const {data: teachers, isLoading, error} = useGetTeachersQuery();
+  //console.log(teachers);
+
+  const navigate = useNavigate();
+  const checkoutHandler = () => {
+    navigate("/login?redirect=/shipping");
+  }
 
   return (
     <>
+      {isLoading && <Loader/>}
+      {error && <Message variant="danger">{error?.data?.message || error.error}</Message>}
       <h3 id='rows' className='hosgeldiniz'>"Piyon" eğitim setine hoşgeldiniz.</h3>
       <h3 id='hosgeldiniz' className='hosgeldiniz'>Bu eğitim seti ile hafta başına 1.5 Saat grup dersi, 1 Saat özel ders alma imkanı bulacaksınız.</h3>
 
@@ -35,7 +37,7 @@ const Pawn = () => {
         <Col md={6} className='my-5 text-center'>
           <h4 className='mt-5'>{teacher && teacher.description}</h4>
           <h4 className='mt-5'>İletişim: {teacher && teacher.contact}</h4>
-          <Button className='button-center my-3 btn-lg' variant='success'>Ders Al</Button>
+          <Button className='button-center my-3 btn-lg' variant='success' onClick={checkoutHandler}>Yüz Yüze/Online Ders Al</Button>
           <h4><em>{teacher && teacher.remainingPeopleForPawn} kişilik yer kaldı</em></h4>
         </Col>
       </Row>

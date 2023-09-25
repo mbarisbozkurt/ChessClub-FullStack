@@ -1,11 +1,16 @@
 import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema({
-  //refer to the user collection
+  //refer to the user collectio i.e: who requested this lesson
   user: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: "User",
+  },
+
+  lessonType: {
+    type: String, 
+    required: true
   },
 
   shippingAddress: {

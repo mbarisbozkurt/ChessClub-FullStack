@@ -7,7 +7,7 @@ import teachers from "./data/teachers.js";
 
 import User from "./models/userModel.js";
 import Teacher from "./models/teacherModel.js";
-import Orders from "./models/orderModel.js";
+import Order from "./models/orderModel.js";
 
 import connectDB from "./config/db.js";
 dotenv.config();
@@ -19,6 +19,7 @@ const importData = async() => {
     //first delete all
     await User.deleteMany();
     await Teacher.deleteMany();
+    await Order.deleteMany();
 
     //insert users
     await User.insertMany(users); 
@@ -39,6 +40,7 @@ const destroyData = async() => {
   try {
     await User.deleteMany();
     await Teacher.deleteMany();
+    await Order.deleteMany();
     
     console.log("Data deleted!".red.inverse);
     process.exit();
