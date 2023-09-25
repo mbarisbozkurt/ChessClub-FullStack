@@ -23,7 +23,7 @@ const Footer = () => {
         </Row>
         <Row>
             <Col className="text-center py-3">
-               <p>© Copyright &copy; {currentYear} Anlayış Satranç Akademi</p>
+               <p>Copyright &copy; {currentYear} Anlayış Satranç Akademi</p>
             </Col>
         </Row>
    </footer>
