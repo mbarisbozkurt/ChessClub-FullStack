@@ -12,7 +12,7 @@ const Queen = () => {
 
   const navigate = useNavigate();
   const checkoutHandler = () => {
-    navigate("/login?redirect=/shipping");
+    navigate("/login?redirect=/shipping"); /*Login'e git, işin bitince shipping'e yönlendir*/
   }
 
   return (

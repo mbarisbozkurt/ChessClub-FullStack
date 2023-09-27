@@ -18,6 +18,8 @@ import HomeScreen from './screens/HomeScreen';
 import PawnScreen from './screens/PawnScreen';
 import BishopScreen from './screens/BishopScreen';
 import QueenScreen from './screens/QueenScreen';
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +28,8 @@ const router = createBrowserRouter(
       <Route path='/piyon' element={<PawnScreen/>}/> 
       <Route path='/fil' element={<BishopScreen/>}/>
       <Route path='/vezir' element={<QueenScreen/>}/>
+      <Route path='/login' element={<LoginScreen/>}/> 
+      <Route path='/register' element={<RegisterScreen/>}/>
     </Route>
   )
 )

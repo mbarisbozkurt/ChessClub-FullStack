@@ -22,7 +22,7 @@ const Footer = () => {
           </Col>
         </Row>
         <Row>
-            <Col className="text-center py-3">
+            <Col>
                <p>Copyright &copy; {currentYear} Anlayış Satranç Akademi</p>
             </Col>
         </Row>

@@ -1,3 +1,16 @@
+/*IMPORTANT: TO BE ABLE TO PUSH FOOTER TO BOTTOM OF ALL PAGES */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  
+}
+
+.content-wrapper {
+  flex: 1; 
+}
+
+/***********************************************************/
+
 /*ID's*/
 /*Title Section*/
 #başlık{
@@ -24,7 +37,7 @@
 /*Footer Section*/
 #footer{
   background-color: #B4E4FF;
-  padding: 5% 15%;
+  padding: 3%;
   text-align: center;
 }
 
@@ -44,14 +57,10 @@ body{
 }
 
 h2{
-  /*margin-top: 100px;
-  margin-bottom: 100px;*/
   text-align: center;
-  
   font-family: 'Montserrat';
   font-weight: bold;
   font-size: 3rem;
-
   color: #413543;
 }
 
@@ -76,17 +85,6 @@ p{
   width: 80%;
   margin-left: 150px;
 }
-
-/* @media (max-width: 1000px)
-{
-  #title{
-      text-align: center;
-  }
-  .chess-image{
-      position: relative;
-      right: 75px;
-  }
-} */
 
 .container-fluid{
   padding: 7% 15%; /*%7 for top and bottom, %15 for left and right*/
@@ -268,4 +266,7 @@ p{
 .hosgeldiniz{
   text-align: center;
 }
+
+
+
 

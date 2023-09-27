@@ -3,6 +3,7 @@ import dotenv from "dotenv"; //To be able to read the .env file with the .config
 dotenv.config();
 import connectDB from "./config/db.js";
 import {notFound, errorHandler} from "./middleware/errorMiddleware.js"
+import cookieParser from "cookie-parser"
 
 import teacherRoutes from "./routes/teacherRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
@@ -12,10 +13,13 @@ const app = express();
 connectDB();
 
 /****************************************************************/
-
 //Body-parser middleware, to be able to get the data with "req.body" in the controllers
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+//Cookie-parser middleware, allows to req.cookies.jwt (jwt is the name of the cookie) 
+app.use(cookieParser());
+/****************************************************************/
 
 app.get("/", (req, res) => {
   res.send("API is running...")
@@ -24,10 +28,11 @@ app.get("/", (req, res) => {
 app.use("/api/teachers", teacherRoutes); //after /api/teachers, no matter what is coming after that, go to teacherRoutes
 app.use("/api/users", userRoutes);
 
+/****************************************************************/
+//Error middleware, for throw new Error(), MUST BE ADDED AFTER EVERYTHING
 app.use(notFound);
 app.use(errorHandler);
-
-/****************************************************************/
+/***************************************************************/
 
 app.listen(port, () => {
   console.log("Server is running on " + port);
