@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser"
 
 import teacherRoutes from "./routes/teacherRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
+import orderRoutes from "./routes/orderRoutes.js"
 
 const port = process.env.PORT || 5000; //get the port from .env
 const app = express();
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/teachers", teacherRoutes); //after /api/teachers, no matter what is coming after that, go to teacherRoutes
 app.use("/api/users", userRoutes);
+app.use("/api/orders", orderRoutes);
 
 /****************************************************************/
 //Error middleware, for throw new Error(), MUST BE ADDED AFTER EVERYTHING

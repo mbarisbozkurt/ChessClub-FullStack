@@ -20,6 +20,9 @@ import BishopScreen from './screens/BishopScreen';
 import QueenScreen from './screens/QueenScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import ShippingScreen from './screens/ShippingScreen';
+import PrivateRoute from './components/PrivateRoute';
+import LessonInfoScreen from './screens/LessonInfoScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +33,12 @@ const router = createBrowserRouter(
       <Route path='/vezir' element={<QueenScreen/>}/>
       <Route path='/login' element={<LoginScreen/>}/> 
       <Route path='/register' element={<RegisterScreen/>}/>
+
+      <Route path='' element={<PrivateRoute/>}>
+        <Route path='/shipping' element={<ShippingScreen/>}/>
+        <Route path='/info' element={<LessonInfoScreen/>}/>
+      </Route>
+
     </Route>
   )
 )

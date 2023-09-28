@@ -1,8 +1,13 @@
 import React from 'react'
 import {Row, Col, Image, Button} from "react-bootstrap"
+import { FaExclamationCircle } from 'react-icons/fa';
+
 import Loader from "../components/Loader.js"
 import Message from '../components/Message.js'
-import {useNavigate} from "react-router-dom"
+
+import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux";
+import { setLessonInfo } from '../slices/orderInfoSlice.js'
 
 import { useGetTeachersQuery } from '../slices/teachersApiSlice'
 
@@ -11,7 +16,10 @@ const Queen = () => {
   const {data: teachers, isLoading, error} = useGetTeachersQuery();
 
   const navigate = useNavigate();
-  const checkoutHandler = () => {
+  const dispatch = useDispatch();
+
+  const checkoutHandler = (teacher) => {
+    dispatch(setLessonInfo({ price: 600, teacherInfo: teacher }));
     navigate("/login?redirect=/shipping"); /*Login'e git, işin bitince shipping'e yönlendir*/
   }
 
@@ -36,8 +44,8 @@ const Queen = () => {
         <Col md={6} className='my-5 text-center'>
           <h4 className='mt-5'>{teacher && teacher.description}</h4>
           <h4 className='mt-5'>İletişim: {teacher && teacher.contact}</h4>
-          <Button className='button-center my-3 btn-lg' variant='success' onClick={checkoutHandler}>Yüz Yüze/Online Ders Al</Button>
-          <h4><em>{teacher && teacher.remainingPeopleForQueen} kişilik yer kaldı</em></h4>
+          <Button className='button-center my-4 btn-lg' variant='success' onClick={() => checkoutHandler(teacher)}>Yüz Yüze/Online Ders Al</Button>
+          <h4><em>{teacher && teacher.remainingPeopleForQueen} kişilik yer kaldı <FaExclamationCircle className='warning-icons'/> </em></h4>
         </Col>
       </Row>
       ))}
