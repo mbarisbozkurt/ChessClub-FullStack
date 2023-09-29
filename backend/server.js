@@ -30,6 +30,10 @@ app.use("/api/teachers", teacherRoutes); //after /api/teachers, no matter what i
 app.use("/api/users", userRoutes);
 app.use("/api/orders", orderRoutes);
 
+app.get("/api/config/paypal", (req, res) => 
+  res.send({clientId: process.env.PAYPAL_CLIENT_ID})
+)
+
 /****************************************************************/
 //Error middleware, for throw new Error(), MUST BE ADDED AFTER EVERYTHING
 app.use(notFound);

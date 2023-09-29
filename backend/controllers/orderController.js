@@ -51,14 +51,108 @@ const getOrderById = asyncHandler(async(req, res) => {
 //@route: PUT /api/orders/:id/pay
 //@access: Private
 const updateOrderToPaid = asyncHandler(async(req, res) => {
-  res.send("update order to paid");
+  const order = await Order.findById(req.params.id);
+
+  if(order){
+    //update the new variables states in the model 
+    order.isPaid = true;
+    order.paidAt = Date.now();
+    order.paymentResult = { 
+      id: req.body.id,
+      status: req.body.status,
+      update_time: req.body.update_time,
+      email_address: req.body.payer.email_address, 
+    }
+
+    //Check if the teacherName is "NM Ismail Tarık Baltacı" 
+    if(order.teacherName === "NM Ismail Tarık Baltacı") {
+      const priceActionMap = {
+          200: 'remainingPeopleForPawn',
+          400: 'remainingPeopleForBishop',
+          600: 'remainingPeopleForQueen' 
+      };
+  
+      const actionField = priceActionMap[order.price];
+      
+      if(actionField) {
+          const teacher = await Teacher.findOne({name: "NM Ismail Tarık Baltacı"});
+          if(teacher && teacher[actionField] > 0) {
+              teacher[actionField] -= 1; //Decrease the count by 1
+              await teacher.save();
+          }
+      }
+    }
+
+    //Check if the teacherName is "Şamil Aliyev" 
+    if(order.teacherName === "Şamil Aliyev") {
+      const priceActionMap = {
+          200: 'remainingPeopleForPawn',
+          400: 'remainingPeopleForBishop',
+          600: 'remainingPeopleForQueen' 
+      };
+  
+      const actionField = priceActionMap[order.price];
+      
+      if(actionField) {
+          const teacher = await Teacher.findOne({name: "Şamil Aliyev"});
+          if(teacher && teacher[actionField] > 0) {
+              teacher[actionField] -= 1; //Decrease the count by 1
+              await teacher.save();
+          }
+      }
+    }
+
+    //Check if the teacherName is "Mehmet Barış Bozkurt" 
+    if(order.teacherName === "Mehmet Barış Bozkurt") {
+      const priceActionMap = {
+          200: 'remainingPeopleForPawn',
+          400: 'remainingPeopleForBishop',
+          600: 'remainingPeopleForQueen' 
+      };
+  
+      const actionField = priceActionMap[order.price];
+      
+      if(actionField) {
+          const teacher = await Teacher.findOne({name: "Mehmet Barış Bozkurt"});
+          if(teacher && teacher[actionField] > 0) {
+              teacher[actionField] -= 1; //Decrease the count by 1
+              await teacher.save();
+          }
+      }
+    }
+
+    //Check if the teacherName is "Deniz Özgen" 
+    if(order.teacherName === "Deniz Özgen") {
+      const priceActionMap = {
+          200: 'remainingPeopleForPawn',
+          400: 'remainingPeopleForBishop',
+          600: 'remainingPeopleForQueen' 
+      };
+  
+      const actionField = priceActionMap[order.price];
+      
+      if(actionField) {
+          const teacher = await Teacher.findOne({name: "Deniz Özgen"});
+          if(teacher && teacher[actionField] > 0) {
+              teacher[actionField] -= 1; //Decrease the count by 1
+              await teacher.save();
+          }
+      }
+    }
+  
+    const updatedOrder = await order.save();
+    res.status(200).json(updatedOrder);
+  }else{
+    res.status(404);
+    throw new Error ("Ders bulunamadı!");
+  }
 })
 
 //@desc: Update order to delivered
 //@route: PUT /api/orders/:id/deliver
 //@access: Private/Admin
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
-  res.send("update order to delivered");
+  
 });
 
 //@desc: Get all orders
@@ -72,58 +166,42 @@ const getOrders = asyncHandler(async(req, res) => {
 //@route: POST /api/orders/sendEmail
 //@access: Private
 const sendEmail = asyncHandler(async(req, res) => {
-  res.send("send email");
-  // const orderDetails = req.body;
+  const orderDetails = req.body;
 
-  // const generateOrderItemsHTML = (items) => {
-  //   return items.map(item => `
-  //     <li>
-  //       <strong>Product Name:</strong> ${item.name} <br>
-  //       <strong>Quantity:</strong> ${item.qty} <br>
-  //       <strong>Price:</strong> $${item.price} 
-  //     </li>
-  //     <br>
-  //   `).join(''); 
-  // }
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS,
+      }
+    });
 
-  // try {
-  //   const transporter = nodemailer.createTransport({
-  //     service: "gmail",
-  //     auth: {
-  //       user: process.env.GMAIL_USER,
-  //       pass: process.env.GMAIL_PASS,
-  //     }
-  //   });
+    const message = {
+      from: process.env.GMAIL_USER,
+      to: `${orderDetails.user.email}`,
+      subject: "Akademi Satranç Kulübüne Hoşgeldin!",
+      html: `
+      <h2>Selam, ${orderDetails.user.name}.</h2>
+      <p>Aramıza hoşgeldin!</p>
+      <h3>Ders Bilgilerin:</h3>
+      <p><strong>Eğitmen:</strong> ${orderDetails.teacherName}</p>
+      <p><strong>Ders Türü:</strong> ${orderDetails.lessonType}</p>
+      <p><strong>Fatura Adresi:</strong> ${orderDetails.shippingAddress.address}, ${orderDetails.shippingAddress.city}, ${orderDetails.shippingAddress.postalCode}</p>
+       `
+    };
 
-  //   const message = {
-  //     from: process.env.GMAIL_USER,
-  //     to: `${orderDetails.user.email}`,
-  //     subject: "Your Order Info",
-  //     html: `
-  //     <h2>Hello, ${orderDetails.user.name}.</h2>
-  //     <p>Thank you for your order.</p>
-  //     <h3>Order Details:</h3>
-  //     <ul>
-  //       ${generateOrderItemsHTML(orderDetails.orderItems)}
-  //     </ul>
-  //     <p><strong>Total Price:</strong> $${orderDetails.totalPrice}</p>
-  //     <p><strong>Payment Method:</strong> ${orderDetails.paymentMethod}</p>
-  //     <p><strong>Shipping Address:</strong> ${orderDetails.shippingAddress.address}, ${orderDetails.shippingAddress.city}, ${orderDetails.shippingAddress.postalCode}, ${orderDetails.shippingAddress.country}</p>
-  //      `
-  //   };
-
-  //   try {
-  //     const info = await transporter.sendMail(message);
-  //     console.log("Mail sent", info);
-  //   } catch (error) {
-  //     console.log(error, "error");
-  //   }
+    try {
+      const info = await transporter.sendMail(message);
+      console.log("Mail sent", info);
+    } catch (error) {
+      console.log(error, "error");
+    }
     
-  //   res.status(201).json({msg: "Email sent successfully"});
-  // } catch (error) {
-  //   res.status(500).json({error: error.message});
-  // }
-
+    res.status(201).json({msg: "Eposta başarılı bir şekilde gönderildi"});
+  } catch (error) {
+    res.status(500).json({error: error.message});
+  }
 });
 
 export{createOrder, getMyOrders, getOrderById, updateOrderToPaid, updateOrderToDelivered, getOrders, sendEmail};

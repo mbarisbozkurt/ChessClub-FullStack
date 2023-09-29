@@ -11,10 +11,47 @@ export const ordersApiSlice = apiSlice.injectEndpoints({ //add endpoints to http
         body: {...order},
       }),
     }),
+
+    getOrderDetails: builder.query({ //query for get requests
+      query: (orderId) => ({ 
+        url: `${ORDERS_URL}/${orderId}`, //make a get request to: http://localhost:5000/api/orders/:id
+      }),
+      keepUnusedDataFor: 5
+    }),
+
+    payOrder: builder.mutation({
+      query: ({orderId, details}) => ({
+        url: `${ORDERS_URL}/${orderId}/pay`,
+        method: "PUT",
+        body: {...details},
+      }),
+    }),
+
+    getPayPalClientId: builder.query({ 
+      query: () => ({ 
+        url: PAYPAL_URL,
+      }),
+      keepUnusedDataFor: 5
+    }),
+
+    sendEmail: builder.mutation({ 
+      query: (order) => ({ 
+        url: `${ORDERS_URL}/sendEmail`, //make a post request to: http://localhost:5000/api/orders/sendEmail
+        method: "POST",
+        body: {...order},
+      }),
+    }),
+
+    getMyOrders: builder.query({ 
+      query: () => ({ 
+        url: `${ORDERS_URL}/mine`,
+      }),
+      keepUnusedDataFor: 5
+    }),
   }),
 });
 
 export const {useCreateOrderMutation, useGetOrderDetailsQuery, usePayOrderMutation, useGetPayPalClientIdQuery, 
-  useGetMyOrdersQuery, useGetOrdersQuery, useDeliverOrderMutation, useSendEmailMutation} = ordersApiSlice; 
+  useGetMyOrdersQuery,useSendEmailMutation} = ordersApiSlice; 
 
 

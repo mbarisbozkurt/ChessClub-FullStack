@@ -9,6 +9,5 @@ router.route("/mine").get(protect, getMyOrders); // /api/orders/mine
 router.route("/sendEmail").post(protect, sendEmail); // /api/orders/sendEmail
 router.route("/:id").get(protect, getOrderById); // /api/orders/:id
 router.route("/:id/pay").put(protect, updateOrderToPaid); // /api/orders/:id/pay
-router.route("/:id/deliver").put(protect, admin, updateOrderToDelivered); // /api/orders/:id/deliver
 
 export default router;

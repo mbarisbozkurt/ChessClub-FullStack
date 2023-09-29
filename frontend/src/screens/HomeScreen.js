@@ -3,8 +3,12 @@ import {Row, Col, Container, Image, Card, Button} from "react-bootstrap"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChessKnight, faChessBishop, faChessRook, faChessQueen } from '@fortawesome/free-solid-svg-icons';
 import { LinkContainer } from 'react-router-bootstrap'; 
+import { useGetTeachersQuery } from '../slices/teachersApiSlice'
 
 const HomeScreen = () => {
+
+  const {data: teachers, isLoading, error} = useGetTeachersQuery();
+
   return (
     <>
       <section id="başlık">
@@ -47,27 +51,14 @@ const HomeScreen = () => {
       
       <section id="eğitmenler">
             <h2 className="staff">EĞİTMENLER</h2>
-              <Row className="photo-container">
-                  <Col lg={3} className="person">
-                      <Image className="iso-photo photos" src="images/iso-e1599314615102.jpg" alt="iso-photo" />
-                      <h5 className="names">NM İsmail Tarık Baltacı</h5>
-                  </Col>
-
-                  <Col lg={3} className="person">
-                      <Image className="şamil-photo photos" src="images/272920431_4797855093662086_5044797289672000267_n.jpg" alt="şamil-photo" />
-                      <h5 className="şamil-name">Şamil Aliyev</h5>
-                  </Col>
-
-                  <Col lg={3} className="person">
-                      <Image className="barış-photo photos" src="images/13690929_10210129296817039_6920167410369767353_o.jpg" alt="barış-photo" />
-                      <h5 className="barış-name">Barış Bozkurt</h5>
-                  </Col>
-
-                  <Col lg={3} className="person">
-                      <Image className="deniz-photo photos" src="images/146ac58a-fde4-4d14-9f40-9990fb96027c.jpeg" alt="deniz-photo" />
-                      <h5 className="deniz-name">Deniz Özgen</h5>
-                  </Col>
-              </Row>
+            <Row className="photo-container">
+              {teachers && teachers.map((teacher) => (
+                <Col lg={3} className="person">
+                  <Image className="iso-photo photos" src={teacher.image} alt="photos" />
+                  <h5 className="names">{teacher.name}</h5>
+                </Col>
+              ))}
+            </Row>
         </section>
 
         <section id="ders-al">

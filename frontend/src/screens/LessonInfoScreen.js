@@ -86,7 +86,7 @@ const LessonInfoScreen = () => {
                 <h4>Ders Bilgileriniz</h4>
                 <p className='custom-paragraph mt-3'><strong>Eğitmen:</strong> {teacherName}</p>
                 <p className='custom-paragraph'><strong>Ders Türü:</strong> {lessonType}</p> 
-                <p className='custom-paragraph'><strong>Fiyat:</strong> {price} TL / AY</p> 
+                <p className='custom-paragraph'><strong>Fiyat:</strong> {price}TL/AY</p> 
               </ListGroupItem>
 
               <ListGroupItem className='py-3'>
@@ -96,7 +96,7 @@ const LessonInfoScreen = () => {
 
               <ListGroupItem className='py-3'>
                 <h4>Ödeme Yöntemi</h4>
-                <strong>Yöntem:</strong> PayPal
+                <strong>Yöntem:</strong> PayPal / Kredi Kartı
               </ListGroupItem> 
 
               {error && <Message variant="danger"> {error.message} </Message>}
