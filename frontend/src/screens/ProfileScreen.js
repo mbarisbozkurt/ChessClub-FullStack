@@ -1,7 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from "react";
 import {Table, Form, Button, Row, Col, FormGroup, FormLabel, FormControl} from "react-bootstrap";
-import { LinkContainer } from 'react-router-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -58,7 +57,7 @@ const ProfileScreen = () => {
     <Row className='justify-content-center mt-3'>
       <Col md={4} className='mt-4'>  
           <Form onSubmit={onSubmitHandler}>
-            <h3 className='my-3'>Kullanıcı Bilgileri</h3>
+            <h3 className='my-3'>Kullanıcı Bilgileri/Bilgilerini Güncelle</h3>
 
             <FormGroup controlId='username' className='my-3'>
               <FormLabel>İsim</FormLabel>
